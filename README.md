@@ -1,7 +1,7 @@
 android-softmodem
 ================
 
-
+‚í‚İ‚ªì‚Á‚½‚Ì‚à‚Ítest‚Ì‚È‚©‚É Android studio@1.1.0@‚É‚ÄŠJ”­
 
 Android/Java library for encoding and decoding FSK audio signals.
 
