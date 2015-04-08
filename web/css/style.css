@@ -1,0 +1,72 @@
+/* ##############################
+
+FSK  Serial  Generator
+    in  JavaScript    
+ for SoftModem board! 
+
+Demo: http://cdn.simon.waldherr.eu/projects/fsk/
+Repo: https://github.com/SimonWaldherr/FSK-Encoder.js
+Version: 0.6
+License: MIT https://github.com/SimonWaldherr/FSK-Encoder.js/blob/master/LICENSE.md
+
+############################## */
+
+body{
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #000000;
+  background: #e9e9e9;
+  background: -moz-linear-gradient(top,white 0%,#E5E5E5 60%,#EAEAEA 85%,white 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,white),color-stop(60%,#E5E5E5),color-stop(85%,#EAEAEA),color-stop(100%,white));
+  background: -webkit-linear-gradient(top,white 0%,#E5E5E5 60%,#EAEAEA 85%,white 100%);
+  background: -o-linear-gradient(top,white 0%,#E5E5E5 60%,#EAEAEA 85%,white 100%);
+  background: -ms-linear-gradient(top,white 0%,#E5E5E5 60%,#EAEAEA 85%,white 100%);
+  background: linear-gradient(to bottom,white 0%,#E5E5E5 60%,#EAEAEA 85%,white 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff',endColorstr='#ffffff',GradientType=0 );
+}
+
+h1, h2{
+  margin-top: 0px;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+input[type="submit"], input[type="button"]{
+  margin: auto;
+  width: 270px;
+  font-size: 30pt;
+  display: block;
+}
+
+label {
+  margin: 20px;
+  font-weight: lighter;
+}
+
+.baf, .baf[disabled]{
+  display: block;
+  margin: auto;
+}
+
+#content{
+  position: relative;
+  top: 3em;
+  width: 575px;
+  margin: 1% auto 7% auto;
+  background: #fefefe;
+  border: 1px solid #CCC;
+  padding: 1em;
+  -webkit-box-shadow: 0px 3px 15px 0px rgba(15, 15, 15, 0.2);
+  box-shadow: 0px 3px 15px 0px rgba(15, 15, 15, 0.2);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+#data {
+  display: block;
+  width: 93%;
+  height: 160px;
+  margin: auto;
+  font-size: 15pt;
+  font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+}

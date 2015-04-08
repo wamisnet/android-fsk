@@ -1,0 +1,64 @@
+<!--
+
+FSK  Serial  Generator
+    in  JavaScript    
+ for SoftModem board! 
+
+Demo: http://cdn.simon.waldherr.eu/projects/fsk/
+Repo: https://github.com/SimonWaldherr/FSK-Encoder.js
+Version: 0.7
+License: MIT https://github.com/SimonWaldherr/FSK-Encoder.js/blob/master/LICENSE.md
+
+--><!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=780">  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>FSK Encoder.js</title>
+  <script type="text/javascript" src="./js/fsk.js"></script>
+  <script type="text/javascript" src="./js/script.js"></script>
+  <script type="text/javascript" src="./majax/majax.js"></script>
+  <script type="text/javascript" src="./baf/js/baf.js"></script>
+  <link rel="stylesheet" href="./baf/css/baf.css" type="text/css"  media="screen" />
+  <link rel="stylesheet" href="./css/style.css" type="text/css"  media="screen" />
+</head>
+
+<body>
+<div id="content">
+  <h1>FSK Serial Generator</h1><h2>in JavaScript for SoftModem board</h2><hr>
+  <h3>Info</h3>
+  <p>The Code of this Page is located at the <a href="https://github.com/SimonWaldherr/FSK-Encoder.js">GitHub.com/SimonWaldherr/FSK-Encoder.js</a> Repo.</p>
+  <p>You can send data to the <b>SoftModem breakout board for Arduino</b> using the JavaScript on this page.<br>
+  This works via <b>data-uri</b> audio on <b>HTML5</b> ready browsers (Firefox, Safari, Chrome, Opera).</p>
+  <p>For mobile browsers (on <b>iOS</b> or <b>Android</b> Devices), there is a <b>Download Audio file</b> button (because mobile browsers do not support dataURIs).</p>
+  <p>This is Version 0.7 of the FSK-Encoder.js</p>
+  <p>The complete code is licensed under the terms of MIT-License.</p><hr>
+  <h3>Hardware (SoftModem)</h3> 
+  <p><a href="http://code.google.com/p/arms22/wiki/SoftModemBreakoutBoard">Project at <b>GoogleCode</b></a><br>
+     <a href="https://www.sparkfun.com/products/10331">Buy it from <b>Sparkfun</b> Electronics</a>
+  </p><hr>
+  <h3>Generator</h3>
+  <form onsubmit="generate($('data').value); return false;">
+  <label for="data"><i>PLEASE ENTER YOUR TEXT STRING</i></label><br>
+  <textarea type="text" id="data" size="40" placeholder="" onkeyup="document.getElementById('send').removeAttribute('disabled');"></textarea><br>
+  <a class="baf green" type="submit" value="Generate and Play" id="send" disabled="true" onclick="if((baf_changeloadingmode(this))&&($('data').value!='')){generate($('data').value);};">send</a><br>
+  <a class="baf blue" type="button" value="Jump to Audio data" id="jmp" disabled="true" onclick="if((baf_changeloadingmode(this))&&(dataURI!='')){if(window.confirm('open audio as dataURI')){location.href=dataURI;}else{baf_changeloadingmode(this);}};">Jump to Audio data</a><br>
+  <a class="baf blue" type="button" value="Download Audio file" id="dl" disabled="true" onclick="if((baf_changeloadingmode(this))&&(dataURI!='')){if(window.confirm('open .wav audio file')){dlaudio();}else{baf_changeloadingmode(this);}};">Download Audio file</a>
+  </form>
+</div>
+<br>
+<div id="audiodata" style="display: none; visibility: hidden;"></div>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12565471-1']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = 'http://statistik.simon.waldherr.eu/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!--
+  
+FSK  Serial  Generator
+    in  JavaScript    
+ for SoftModem board! 
+
+Demo: http://cdn.simon.waldherr.eu/projects/fsk/
+Repo: https://github.com/SimonWaldherr/FSK-Encoder.js
+Version: 0.6
+License: MIT https://github.com/SimonWaldherr/FSK-Encoder.js/blob/master/LICENSE.md
+
+--><!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>FSK Encoder.js</title>
+  <script type="text/javascript" src="./js/fsk.js"></script>
+  <link rel="stylesheet" href="./css/style.css" type="text/css"  media="screen" />
+  <style>
+    span, input{
+      display: inline-block;
+      width: 200px;
+      margin: 40px 0px 15px 0px;
+      font-size: larger;
+    }
+    span{
+      width: 100px;
+      text-align: right;
+    }
+    textarea{
+      height: 300px;
+      width: 569px;
+    }
+    #testdiv{
+      font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+    }
+  </style>
+  <script>
+    
+    function changeValues(element)
+      {
+        var kc = window.event.keyCode;
+        if (kc === 37)
+          {
+            //links gedrückt
+            element.value = Math.round(element.value)-1;
+          }
+        else if (kc === 38)
+          {
+            //oben gedrückt
+            element.value = Math.round(element.value)+1;
+          }
+        else if (kc === 39)
+          {
+            //rechts gedrückt
+            element.value = Math.round(element.value)+1;
+          }
+        else if (kc === 40)
+          {
+            //unten gedrückt
+            element.value = Math.round(element.value)-1;
+          }
+      }
+    var testi = 0;
+    function testfunc()
+      {
+        var i = testi;
+        while(testi < i+5000)
+          {
+            var node=document.createElement("LI");
+            var textnode=document.createTextNode("Nr."+testi+" - "+chr8(testi)+" - "+chr16(testi)+" - "+chr32(testi));
+            node.appendChild(textnode);
+            document.getElementById("testlist").appendChild(node);
+            testi=testi+1;
+          }
+      }
+  </script>
+  </head>
+  
+  <body onload="load();">
+  <div id="content">
+    <h1>FSK Serial Generator</h1><h2>in JavaScript for SoftModem board</h2><hr>
+    <h3>Info</h3>
+    <p>The Code of this Page is located at the <a href="https://github.com/SimonWaldherr/FSK-Encoder.js">GitHub.com/SimonWaldherr/FSK-Encoder.js</a> Repo.</p>
+    <p>You can send data to the <b>SoftModem breakout board for Arduino</b> using the JavaScript on <a href="http://cdn.simon.waldherr.eu/projects/fsk/">cdn.simon.waldherr.eu/projects/fsk/</a>.<br>
+    This works via <b>data-uri</b> audio on <b>HTML5</b> ready browsers (Firefox, Safari, Chrome, Opera).</p>
+    <p>For mobile browsers (on <b>iOS</b> or <b>Android</b> Devices), there is a <b>Download Audio file</b> button (because mobile browsers do not support dataURIs).</p>
+    <p>This is Version 0.6 of the FSK-Encoder.js</p>
+    <p>The complete code is licensed under the terms of MIT-License.</p><hr>
+    <h1>FSK Functions Testpage</h1>
+    <br><span>chr8</span>
+    <input name="" type="text" id="a1" onkeydown="changeValues(this);" onkeyup="$('chr8').value = chr8(this.value)">
+    <input name="" type="text" id="chr8" readonly="readonly" onclick="$('textarea').value = this.value;">
+    <br><span>chr16</span>
+    <input name="" type="text" id="a2" onkeydown="changeValues(this);" onkeyup="$('chr16').value = chr16(this.value)">
+    <input name="" type="text" id="chr16" readonly="readonly" onclick="$('textarea').value = this.value;">
+    
+    <br><span>chr32</span>
+    <input name="" type="text" id="a3" onkeydown="changeValues(this);" onkeyup="$('chr32').value = chr32(this.value)">
+    <input name="" type="text" id="chr32" readonly="readonly" onclick="$('textarea').value = this.value;">
+    
+    <br><span>toUTF8</span>
+    <input name="" type="text" id="a4" onkeyup="$('toUTF8').value = toUTF8(this.value)">
+    <input name="" type="text" id="toUTF8" readonly="readonly" onclick="$('textarea').value = this.value;">
+    
+    <br><span>FSKencode</span>
+    <input name="" type="text" id="a5" onkeyup="$('FSKencode').value = FSKencode(this.value)">
+    <input name="" type="text" id="FSKencode" readonly="readonly" onclick="$('textarea').value = this.value;">
+    
+    <br><br><hr>
+    <textarea id="textarea"></textarea>
+    <hr><br>
+    <div id="testdiv"><a onclick="testfunc();" href="#">Start Big Test</a><br><ul id="testlist">
+    </ul></div>
+  </div>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12565471-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = 'http://statistik.simon.waldherr.eu/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+  </body>
+  
+</html>
